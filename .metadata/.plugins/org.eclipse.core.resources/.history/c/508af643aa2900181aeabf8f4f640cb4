@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+ 
+<tiles-definitions>  
+  
+   <!-- Base Definition -->
+  <!--  <definition name="base-definition"
+       template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">  
+       <put-attribute name="title" value="" />  
+       <put-attribute name="header" value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />  
+       <put-attribute name="menu" value="/WEB-INF/views/tiles/template/defaultMenu.jsp" />  
+       <put-attribute name="body" value="" />  
+       <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />  
+   </definition>  
+  
+   Home Page
+   <definition name="home" extends="base-definition">  
+       <put-attribute name="title" value="Welcome" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/home.jsp" />  
+   </definition>  
+ 
+   Product Page
+   <definition name="products" extends="base-definition">  
+       <put-attribute name="title" value="Products" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/products.jsp" />  
+   </definition>  
+       
+   Contact-us Page
+   <definition name="contactus" extends="base-definition">  
+       <put-attribute name="title" value="Contact Us" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/contactus.jsp" />  
+   </definition>   -->
+   
+   <definition name="commonLayout" template="/WEB-INF/views/common/commonLayout.jsp"> 
+       <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />  
+   </definition> 
+   
+   <definition name=".home"  template="/WEB-INF/views/home.jsp"/>
+   <definition name=".ticketBooked"  template="/WEB-INF/views/ticketBooked.jsp"/>
+   <definition name=".busesList"  template="/WEB-INF/views/busesList.jsp"/>
+   <definition name=".bookingForm"  template="/WEB-INF/views/BookingForm.jsp"/>
+   
+   <definition name=".busesList" extends="commonLayout">  
+       <put-attribute name="body" value="/WEB-INF/views/busesList.jsp" />  
+   </definition>
+  
+</tiles-definitions>

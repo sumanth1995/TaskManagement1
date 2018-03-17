@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+ <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<script src="/TaskManagement/resources/js/jquery-3.1.1.js"></script>
+<script src="/TaskManagement/resources/js/jquery-ui.js"></script>
+<script src="/TaskManagement/resources/js/jquery.validate.js"></script>
+<script type="text/javascript" language="javascript">
+
+	$(document).ready(function(){
+		$('#createNewId').click(function(event){
+			openModel();
+		})
+	});
+	function openModel(){
+		$('#myModal').fadeIn(300);
+	}
+	
+</script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="button" name="Create New" tabindex="3" onclick="createNew" id="createNewId"> 
+	<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="modelContent" title="model"></span>
+  </div>
+
+</div>
+</body>
+</html>

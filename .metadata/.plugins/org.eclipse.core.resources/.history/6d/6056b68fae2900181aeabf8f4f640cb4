@@ -1,0 +1,88 @@
+package datasource;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import forms.Bus;
+import forms.City;
+
+
+public class DataBaseCall {
+
+	Connection con;
+	
+	public DataBaseCall(){
+		org.postgresql.Driver driver= new org.postgresql.Driver();
+		try {
+			DriverManager.registerDriver(driver);
+			con= DriverManager.getConnection("jdbc:postgresql://localhost:5432/myLocalDB", "postgres", "sumanth");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	/*@Bean
+	public DataSource dataSource(){
+		DriverManagerDataSource driverManagerDataSource= new DriverManagerDataSource();
+		driverManagerDataSource.setDriverClassName("db.driver");
+		driverManagerDataSource.setUrl("db.url");
+		driverManagerDataSource.setUsername("db.username");
+		driverManagerDataSource.setPassword("db.password");
+		return driverManagerDataSource;
+	}*/
+	
+	public List<String> fetchCityList() throws SQLException{
+		
+		List<String> cityList= new ArrayList<String>();
+		PreparedStatement ps=con.prepareStatement("select * from city");
+		ResultSet rs=ps.executeQuery();
+		while(rs.next()){
+			cityList.add(rs.getString(1));
+		}
+		
+		return cityList;
+	}
+	
+	public void addMember(String name) throws SQLException{
+		Statement st= con.createStatement();
+		
+		st.executeUpdate("insert into firsttable values('"+name+"')");
+		st= null;
+		con= null;
+	}
+	
+	public List<Bus> fetchBuses(String source, String destination, String date) throws SQLException{
+		
+		List<Bus> busesList= new ArrayList<Bus>();
+		
+		PreparedStatement ps=con.prepareStatement("select * from bus where source=? AND destination=? AND startdate=? ");
+		ps.setString(1,source);
+		ps.setString(2, destination);
+		ps.setString(3, date);
+		ResultSet rs=ps.executeQuery();
+		while(rs.next()){
+			Bus bus=new Bus();
+			bus.setBusNo(rs.getInt(1));
+			bus.setSource(rs.getString(2));
+			bus.setDestination(rs.getString(3));
+			bus.setStartTime(rs.getTime(4));
+			bus.setSeatsLeft(rs.getInt(7));
+			busesList.add(bus);
+		}
+		return busesList;
+	}
+	
+	
+}

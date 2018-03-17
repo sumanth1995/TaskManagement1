@@ -1,0 +1,5 @@
+<html>
+<body>
+<c:redirect url = "/loginScreen.html"></c:redirect>
+</body>
+</html>

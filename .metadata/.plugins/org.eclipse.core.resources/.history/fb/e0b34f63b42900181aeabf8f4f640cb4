@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+ 
+<tiles-definitions>  
+  
+  <definition name=".loginScreen"  template="/WEB-INF/views/loginScreen.jsp"/>
+  
+  <definition name=".home"  extends="commonLayout">
+  	  <put-attribute name="taskList" value="/WEB-INF/views/home.jsp" /> 
+  </definition>
+  
+  <definition name="commonLayout" template="/WEB-INF/views/common/commonLayout.jsp"> 
+       <put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+       <put-attribute name="userDetails" value="/WEB-INF/views/userDetails.jsp" />  
+   </definition> 
+
+   
+  <!--  <definition name="commonLayout" template="/WEB-INF/views/common/commonLayout.jsp"> 
+       <put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />  
+   </definition> 
+   
+   <definition name=".home"  template="/WEB-INF/views/home.jsp"/>
+   <definition name=".ticketBooked"  template="/WEB-INF/views/ticketBooked.jsp"/>
+   <definition name=".busesList"  template="/WEB-INF/views/busesList.jsp"/>
+   <definition name=".bookingForm"  template="/WEB-INF/views/BookingForm.jsp"/>
+   
+   <definition name=".busesList" extends="commonLayout">  
+       <put-attribute name="body" value="/WEB-INF/views/busesList.jsp" />  
+   </definition> -->
+  
+</tiles-definitions>
